@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Dapur Melodia</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3290823194406393"
+     crossorigin="anonymous"></script>
+</head>
+<body>
 
+    <header>
+        <div class="container">
+            <div class="logo-and-title">
+                <img src="Untitled design.png" alt="Untitled design" class="logo-and-title">
+                <h1><font face="Amorilla" color="white">Dapur Melodia</font></h1>
+            </div>
+            <div id="qr-code-display">
+            </div>
+            <div class="cart-summary-header">
+                &nbsp;<h6>Keranjang:</h6> <span id="cart-count">0</span> item
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section id="menu-list">
+            <h2>Daftar Menu</h2>
+            <div id="menu-container">
+            </div>
+        </section>
+
+        <section id="cart-summary">
+            <h3>Rincian Pesanan Anda</h3>
+            <div id="cart-items">
+                <p class="empty-message">Keranjang masih kosong.</p>
+            </div>
+            <div class="summary-footer">
+                <p>Total Harga: <span id="cart-total-price">Rp 0</span></p>
+                <button id="whatsapp-order-btn" disabled>
+                    Pesan Sekarang via WhatsApp 💬
+                </button>
+                <p class="whatsapp-note">Pastikan WhatsApp terinstal di perangkat Anda.</p>
+                <p class="whatsapp-note">Semua Catatan Pemesanan Via Whatsapp.</p>
+            </div>
+        </section>
+
+        <section id="delivery-links" class="container">
+            <div class="delivery-buttons">
+                <a href="https://gofood.link/contoh" target="_blank" class="delivery-btn gofood">
+                    🛵 Pesan via GoFood
+                </a>
+                <a href="https://shopeefood.link/contoh" target="_blank" class="delivery-btn shopeefood">
+                    🧡 Pesan via Shopee Food
+                </a>
+            </div>
+        </section>
+        </main>
+
+    <footer>
+       <marquee><p>Copyright&copy; 2025 Dapur Melodia | Kontak: <span id="whatsapp-number-display"></span></p></marquee>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
