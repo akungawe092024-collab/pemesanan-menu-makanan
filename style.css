@@ -1,1 +1,221 @@
+:root {
+    --primary-color: #4CAF50; /* Hijau */
+    --accent-color: #FF9800; /* Oranye */
+    --text-color: #333;
+    --bg-light: #f4f4f4;
+}
 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-light);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header dan QR Code */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* START: Style Baru untuk Logo dan Judul */
+.logo-and-title {
+    display: flex; /* Mengatur logo dan judul sejajar */
+    align-items: center; /* Memusatkan secara vertikal */
+    gap: 10px; /* Jarak antara logo dan judul */
+}
+
+.header-logo {
+    height: 50px; /* Tinggi logo, bisa disesuaikan */
+    width: auto; /* Lebar otomatis agar proporsional */
+}
+/* END: Style Baru untuk Logo dan Judul */
+
+header h1 {
+    margin: 0;
+}
+
+#qr-code-display {
+    padding: 5px;
+    background: white;
+    border-radius: 5px;
+}
+
+.cart-summary-header {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Bagian Menu */
+#menu-list {
+    padding: 30px 0;
+}
+
+#menu-list h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+#menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Item Menu */
+.menu-item {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.menu-item h4 {
+    color: var(--text-color);
+    margin: 0 0 5px 0;
+}
+
+.item-price {
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.add-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-btn:hover {
+    background-color: #45a049;
+}
+
+/* Rincian Keranjang */
+#cart-summary {
+    padding: 30px 0;
+    border-top: 1px solid #ccc;
+}
+
+#cart-summary h3 {
+    color: var(--text-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 5px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.item-name-qty {
+    font-size: 0.9em;
+}
+
+.item-controls button {
+    background: #ccc;
+    border: none;
+    padding: 3px 6px;
+    cursor: pointer;
+}
+
+.summary-footer {
+    margin-top: 20px;
+    text-align: right;
+    font-size: 1.1em;
+}
+
+#whatsapp-order-btn {
+    background-color: #25D366; /* Hijau WhatsApp */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+#whatsapp-order-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.whatsapp-note {
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Style Tombol Delivery */
+#delivery-links {
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+
+.delivery-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.delivery-btn {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.95em;
+    transition: opacity 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.delivery-btn:hover {
+    opacity: 0.9;
+}
+
+.gofood {
+    background-color: #00AA13;
+    border: 2px solid #00AA13;
+}
+
+.shopeefood {
+    background-color: #EE4D2D;
+    border: 2px solid #EE4D2D;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9em;
+}
