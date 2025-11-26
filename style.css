@@ -43,6 +43,7 @@ header .container {
 .header-logo {
     height: 50px; /* Tinggi logo, bisa disesuaikan */
     width: auto; /* Lebar otomatis agar proporsional */
+    /* Opsional: Sesuaikan margin atau positioning jika perlu */
 }
 /* END: Style Baru untuk Logo dan Judul */
 
