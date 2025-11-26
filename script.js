@@ -1,13 +1,15 @@
+// file: script.js
+
 // --- 1. KONFIGURASI WAJIB GANTI ---
 const WHATSAPP_NUMBER = '6282122321195'; // GANTI dengan nomor WA Anda (tanpa + atau spasi)
 // --- AKHIR KONFIGURASI ---
 
 // Data Menu (Anda bisa menambahkan lebih banyak item)
 const menuItems = [
-    { id: 1, nama: "Nasi Kepal Ayam", harga: 6000 },
-    { id: 2, nama: " Nasi Ayam Pop", harga: 15000 },
-    { id: 3, nama: "Ayam Bakar", harga: 15000 },
-    { id: 4, nama: "Nasi Bakar", harga: 10000 },
+    { id: 1, nama: "Nasi Kepal Ayam", harga: 6000, gambar: "nasi-kepal.jpg" }, 
+    { id: 2, nama: " Nasi Ayam Pop", harga: 15000, gambar: "Ayam-fire.jpg" }, // <-- DIPERBARUI
+    { id: 3, nama: "Ayam Bakar", harga: 15000, gambar: "Ayam-Bakar.jfif" }, 
+    { id: 4, nama: "Nasi Bakar", harga: 10000, gambar: "Nasi-Bakar.jfif" }, 
 ];
 
 let cart = [];
@@ -34,8 +36,12 @@ function formatRupiah(number) {
 function renderMenu() {
     menuContainer.innerHTML = '';
     menuItems.forEach(item => {
+        // Tentukan sumber gambar, gunakan gambar default jika tidak ada
+        const imageSrc = item.gambar ? item.gambar : 'placeholder.jpg'; 
+        
         const itemHTML = `
             <div class="menu-item">
+                <img src="${imageSrc}" alt="${item.nama}" class="menu-item-image"> 
                 <h4>${item.nama}</h4>
                 <span class="item-price">${formatRupiah(item.harga)}</span>
                 <button class="add-btn" onclick="addToCart(${item.id})">
