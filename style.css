@@ -27,6 +27,12 @@ header {
     padding: 15px 0;
 }
 
+
+.artikel {
+  font-family: 'Poppins', sans-serif;
+}
+
+
 header .container {
     display: flex;
     justify-content: space-between;
