@@ -12,7 +12,21 @@ body {
     padding: 0;
     background-color: var(--bg-light);
     color: var(--text-color);
-}
+background-image: url('Background_Kayu.jpeg'); /* Ganti dengan URL gambar latar belakang Anda */
+body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
 
 .container {
     max-width: 1000px;
@@ -39,33 +53,52 @@ header .container {
     align-items: center;
 }
 
-/* START: Style Baru untuk Logo dan Judul */
+/* START: Style untuk Logo dan Judul */
 .logo-and-title {
     display: flex; /* Mengatur logo dan judul sejajar */
     align-items: center; /* Memusatkan secara vertikal */
-    gap: 10px; /* Jarak antara logo dan judul */
+    gap: 1px; /* Jarak antara logo dan judul */
 }
 
 .header-logo {
-    height: 50px; /* Tinggi logo, bisa disesuaikan */
+    height: 50px; /* Tinggi logo, sudah didefinisikan sebelumnya */
     width: auto; /* Lebar otomatis agar proporsional */
-    /* Opsional: Sesuaikan margin atau positioning jika perlu */
 }
-/* END: Style Baru untuk Logo dan Judul */
+/* END: Style untuk Logo dan Judul */
 
 header h1 {
     margin: 0;
 }
 
 #qr-code-display {
-    padding: 5px;
+  height: 5px
+  width: 5;
+    padding: 2px;
     background: white;
-    border-radius: 5px;
+    border-radius: 2px;
 }
+    .ikon-keranjang {
+        color: #333; /* Warna ikon */
+        font-size: 24px; /* Ukuran ikon */
+        text-decoration: none; /* Hapus garis bawah link */
+        position: relative;
+    }
 
+    .jumlah-item {
+        background-color: red; /* Warna latar belakang jumlah */
+        color: white;
+        border-radius: 50%; /* Bentuk bulat */
+        padding: 2px 6px;
+        font-size: 12px;
+        position: absolute;
+        top: -10px; /* Posisikan di kanan atas ikon */
+        right: -10px;
+    }
+</style>
 .cart-summary-header {
     font-weight: bold;
     font-size: 1.1em;
+    color: red;
 }
 
 /* Bagian Menu */
@@ -75,7 +108,7 @@ header h1 {
 
 #menu-list h2 {
     text-align: center;
-    color: var(--primary-color);
+    color: white;
     margin-bottom: 25px;
 }
 
@@ -101,7 +134,7 @@ header h1 {
 
 .menu-item-image {
     width: 100%; /* Lebar gambar mengisi container */
-    max-height: 150px; /* Batasi tinggi gambar */
+    max-height: 150px; /* Batasi tinggi gambar untuk konsistensi */
     object-fit: cover; /* Pastikan gambar menutupi area tanpa terdistorsi */
     border-radius: 6px;
     margin-bottom: 10px;
@@ -114,9 +147,10 @@ header h1 {
 
 .item-price {
     font-weight: bold;
-    color: var(--accent-color);
+    color: red;
     margin-bottom: 10px;
     display: block;
+    
 }
 
 .add-btn {
@@ -140,7 +174,7 @@ header h1 {
 }
 
 #cart-summary h3 {
-    color: var(--text-color);
+    color: yellow;
     border-bottom: 2px solid var(--accent-color);
     padding-bottom: 5px;
 }
@@ -151,10 +185,14 @@ header h1 {
     align-items: center;
     padding: 8px 0;
     border-bottom: 1px dashed #eee;
+background-color: #00AA13;
+    border: 2px solid #00AA13;
+  
 }
 
 .item-name-qty {
-    font-size: 0.9em;
+    font-size: 1.5em;
+    color: yellow;
 }
 
 .item-controls button {
@@ -168,6 +206,12 @@ header h1 {
     margin-top: 20px;
     text-align: right;
     font-size: 1.1em;
+    color: yellow;
+    border-radius: 2px;
+    padding: 3px;
+    box-shadow: white;
+padding-bottom: 30px;
+    padding-top: 20px;    
 }
 
 #whatsapp-order-btn {
@@ -231,6 +275,36 @@ header h1 {
     background-color: #EE4D2D;
     border: 2px solid #EE4D2D;
 }
+
+/* START: Style QRIS */
+#payment-options {
+    text-align: center;
+    padding: 20px 0 40px;
+    border-top: 1px solid #ccc;
+    color: white;
+}
+
+.qris-image-container {
+    background: white;
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.qris-image {
+    max-width: 170px; /* Batasi ukuran gambar QRIS */
+    height: auto;
+    display: block;
+}
+
+.qris-caption {
+    font-size: 0.9em;
+    color: red;
+    margin-top: 5px;
+}
+/* END: Style QRIS */
 
 /* Footer */
 footer {
