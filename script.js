@@ -4,10 +4,10 @@
 const WHATSAPP_NUMBER = '6282122321195'; // GANTI dengan nomor WA Anda (tanpa + atau spasi)
 // --- AKHIR KONFIGURASI ---
 
-// Data Menu (Anda bisa menambahkan lebih banyak item)
+// Data Menu
 const menuItems = [
     { id: 1, nama: "Nasi Kepal Ayam", harga: 6000, gambar: "nasi-kepal.jpg" }, 
-    { id: 2, nama: " Nasi Ayam Pop", harga: 15000, gambar: "Ayam-fire.jpg" }, // <-- DIPERBARUI
+    { id: 2, nama: "Nasi Ayam Pop", harga: 15000, gambar: "Ayam-fire.jpg" },
     { id: 3, nama: "Ayam Bakar", harga: 15000, gambar: "Ayam-Bakar.jfif" }, 
     { id: 4, nama: "Nasi Bakar", harga: 10000, gambar: "Nasi-Bakar.jfif" }, 
 ];
@@ -23,6 +23,11 @@ const whatsappBtn = document.getElementById('whatsapp-order-btn');
 
 // --- Fungsi Utilitas ---
 
+/**
+ * Memformat angka menjadi format Rupiah (IDR).
+ * @param {number} number - Angka yang akan diformat.
+ * @returns {string} - String format Rupiah.
+ */
 function formatRupiah(number) {
     return new Intl.NumberFormat('id-ID', {
         style: 'currency',
@@ -33,10 +38,13 @@ function formatRupiah(number) {
 
 // --- Fungsionalitas Menu & Keranjang ---
 
+/**
+ * Merender daftar menu ke DOM.
+ */
 function renderMenu() {
     menuContainer.innerHTML = '';
     menuItems.forEach(item => {
-        // Tentukan sumber gambar, gunakan gambar default jika tidak ada
+        // Gunakan gambar default jika tidak ada gambar spesifik
         const imageSrc = item.gambar ? item.gambar : 'placeholder.jpg'; 
         
         const itemHTML = `
@@ -53,6 +61,10 @@ function renderMenu() {
     });
 }
 
+/**
+ * Menambahkan item ke keranjang atau menambah kuantitasnya.
+ * @param {number} itemId - ID item menu yang akan ditambahkan.
+ */
 function addToCart(itemId) {
     const existingItem = cart.find(item => item.id === itemId);
     const menuItem = menuItems.find(item => item.id === itemId);
@@ -65,6 +77,11 @@ function addToCart(itemId) {
     updateCartDisplay();
 }
 
+/**
+ * Memperbarui kuantitas item dalam keranjang.
+ * @param {number} itemId - ID item yang kuantitasnya akan diubah.
+ * @param {number} change - Nilai perubahan kuantitas (-1 atau 1).
+ */
 function updateQuantity(itemId, change) {
     const itemIndex = cart.findIndex(item => item.id === itemId);
     
@@ -72,12 +89,15 @@ function updateQuantity(itemId, change) {
         cart[itemIndex].quantity += change;
         
         if (cart[itemIndex].quantity <= 0) {
-            cart.splice(itemIndex, 1); // Hapus item
+            cart.splice(itemIndex, 1); // Hapus item jika kuantitas <= 0
         }
     }
     updateCartDisplay();
 }
 
+/**
+ * Memperbarui tampilan keranjang dan total harga.
+ */
 function updateCartDisplay() {
     cartItemsContainer.innerHTML = '';
     let total = 0;
@@ -113,6 +133,10 @@ function updateCartDisplay() {
 
 // --- Fungsionalitas WhatsApp ---
 
+/**
+ * Membuat link WhatsApp dengan rincian pesanan.
+ * @returns {string} - Link WhatsApp yang sudah di-encode.
+ */
 function createWhatsappLink() {
     let message = `*Halo, saya ingin memesan menu ini:*\n\n`;
     let total = 0;
@@ -135,6 +159,9 @@ function createWhatsappLink() {
     return whatsappLink;
 }
 
+/**
+ * Handler untuk tombol pesan via WhatsApp.
+ */
 function handleWhatsappOrder() {
     if (cart.length > 0) {
         const link = createWhatsappLink();
@@ -146,6 +173,9 @@ function handleWhatsappOrder() {
 
 // --- Inisialisasi ---
 
+/**
+ * Fungsi inisialisasi yang dijalankan saat DOM selesai dimuat.
+ */
 function initialize() {
     renderMenu();
     updateCartDisplay();
@@ -154,7 +184,7 @@ function initialize() {
     // Tampilkan Nomor WA di Footer
     document.getElementById('whatsapp-number-display').textContent = `+${WHATSAPP_NUMBER}`;
 
-    // Generate QR Code
+    // Generate QR Code untuk Kontak WA
     new QRCode(document.getElementById("qr-code-display"), {
         text: `https://wa.me/${WHATSAPP_NUMBER}`,
         width: 80,
